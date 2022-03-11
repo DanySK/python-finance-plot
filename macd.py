@@ -27,7 +27,8 @@ if __name__ == "__main__":
     macd = ta.macd(close = data['Close'], fast = 12, slow = 26, signal = 9, append = True)
     fig = plt.figure()
     ax = fig.add_subplot(1, 1, 1)
-    ax.set_title(f'MACD Analysis of #{ticker} in #{period}')
+    title = f'MACD Analysis of {ticker} in {period}'
+    ax.set_title(title)
     ax.set_ylabel('Price ($)')
     ax.set_xlabel('Time')
     ax.plot(data['Close'], color = 'black', linewidth = 3)
@@ -35,11 +36,11 @@ if __name__ == "__main__":
     ax2.plot(macd)
     ax2.legend(['MACD_12_26_9', 'MACDh_12_26_9', 'MACDs_12_26_9'])
     fig.tight_layout()
-    fig.show()
     qapp = QtWidgets.QApplication.instance()
     if not qapp:
         qapp = QtWidgets.QApplication()
     app = ApplicationWindow(fig)
+    app.windowTitle = title
     app.show()
     app.activateWindow()
     app.raise_()
