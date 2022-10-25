@@ -2,4 +2,4 @@ matplotlib ==3.6.1
 pandas_ta ==0.3.14.b
 pip ==22.3
 pyqt5 ==5.15.7
-yfinance ==0.1.79
+yfinance ==0.1.80
