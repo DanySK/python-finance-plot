@@ -21,7 +21,7 @@ class ApplicationWindow(QtWidgets.QMainWindow):
 if __name__ == "__main__":
     arguments = iter(sys.argv)
     next(arguments)
-    ticker = next(arguments, 'BTC-USD'
+    ticker = next(arguments, 'BTC-USD')
     period = next(arguments, '1y')
     data = yf.Ticker(ticker).history(period=period)[['Close', 'Open', 'High', 'Volume']]
     macd = ta.macd(close = data['Close'], fast = 12, slow = 26, signal = 9, append = True)
