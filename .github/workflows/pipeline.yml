@@ -25,10 +25,7 @@ jobs:
         run: python -m venv .venv
       - run: source .venv/bin/activate
         if: ${{ matrix.os != 'windows' }}
-      - run: ls -ahl .venv/
-        shell: bash
-        if: ${{ matrix.os == 'windows' }}
-      - run: source .venv/Scripts/activate.ps1
+      - run: .venv/Scripts/activate.ps1
         if: ${{ matrix.os == 'windows' }}
       - name: Install dependencies
         run: pip install -r requirements.txt
