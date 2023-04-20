@@ -12,7 +12,7 @@ jobs:
         py_version:
           - '3.11.3'
           - '3.8'
-          - '3.6'
+          - '3.10'
     runs-on: "${{ matrix.os }}-latest"
     steps:
       - run: echo ciao
