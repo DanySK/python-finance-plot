@@ -24,15 +24,15 @@ jobs:
       - name: Setup the virtual environment
         run: python -m venv .venv
       - run: source .venv/bin/activate
-        if: ${{ matrix.os != windows }}
+        if: ${{ matrix.os != 'windows' }}
       - run: ls -ahl .venv/
         shell: bash
-        if: ${{ matrix.os == windows }}
+        if: ${{ matrix.os == 'windows' }}
       - run: ls -ahl .venv/Scritps/
         shell: bash
-        if: ${{ matrix.os == windows }}
+        if: ${{ matrix.os == 'windows' }}
       - run: source .venv/Scritps/activate.ps1
-        if: ${{ matrix.os == windows }}
+        if: ${{ matrix.os == 'windows' }}
       - name: Install dependencies
         run: pip install -r requirements.txt
       - run: python -m py_compile macd.py
