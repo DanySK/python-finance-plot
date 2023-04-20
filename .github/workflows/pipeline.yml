@@ -6,3 +6,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo ciao
+      - run: python -m venv .venv
+      - run: source .venv/bin/activate
+      - run: pip install -r requirements.txt
+      - run: python -m py_compile macd.py
+      - run: echo SUCCESS!
