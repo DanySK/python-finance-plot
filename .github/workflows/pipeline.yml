@@ -8,6 +8,9 @@ jobs:
       - run: echo ciao
       - name: Checkout the repo
         uses: actions/checkout@main
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.11.3'
       - name: Setup the virtual environment
         run: python -m venv .venv
       - run: source .venv/bin/activate
