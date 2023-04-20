@@ -3,14 +3,24 @@ on:
   - push
 jobs:
   my-first-job:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os:
+          - ubuntu
+          - windows
+          - macos
+        py_version:
+          - '3.11.3'
+          - '3.8'
+          - '3.6'
+    runs-on: "${{ matrix.os }}-latest"
     steps:
       - run: echo ciao
       - name: Checkout the repo
         uses: actions/checkout@main
       - uses: actions/setup-python@v4
         with:
-          python-version: '3.11.3'
+          python-version: '${{ matrix.py_version }}'
       - name: Setup the virtual environment
         run: python -m venv .venv
       - run: source .venv/bin/activate
